@@ -193,7 +193,9 @@ app.frame("/start", async (c) => {
     ),
     intents: [
       state.pageNumber > 0 && <Button value={"prev"}>⬅</Button>,
-      state.pageNumber < 9 && <Button value={"next"}>➡</Button>,
+      state.pageNumber < state.result.length - 1 && (
+        <Button value={"next"}>➡</Button>
+      ),
       <Button.Link href={`${state.result[state.pageNumber].castUrl}`}>
         Go to this cast
       </Button.Link>,
